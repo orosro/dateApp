@@ -1,0 +1,9 @@
+<div id="view-holder">
+    <div class="scroll-wrapper">
+        {{#users}}
+        <div data-id="{{id}}" class="profile {{#isFriend}}_friend{{/isFriend}} {{#active}} active {{/active}}">
+            {{> profile}}
+        </div>
+        {{/users}}
+    </div>
+</div>

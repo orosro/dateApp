@@ -1,0 +1,36 @@
+<div class="conversation">
+    <div class="profile__head">
+        <button class="btn btn__back btn__back_blank">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+        </button>
+        <h3>{{user.name}}</h3>
+    </div>
+    <div class="conversation__list">
+        {{#messages.message}}
+            <div class="conversation__message conversation__message_{{#owner}}right{{/owner}}{{^owner}}left{{/owner}}">
+                <div class="conversation__user-img">
+                    <img src="./img/{{#owner}}{{user.img}}{{/owner}}{{^owner}}owner.jpg{{/owner}}" />
+                </div>
+                <div class="conversation__content">
+                    <div class="inner__wrapper">
+                        {{msg}}
+                    </div>
+                </div>
+            </div>
+        {{/messages.message}}
+    </div>
+    <div class="conversation-holder">
+        <form action="" name="addMessage"
+              class="form-add-message" data-id="{{user.id}}">
+            <div class="conversation__input-wrapper">
+                <div class="inner">
+                    <textarea data-id="{{user.id}}"
+                              class="conversation__input message_default"
+                              name="Text1"
+                              placeholder="Write a message..."
+                    ></textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

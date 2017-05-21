@@ -1,13 +1,10 @@
 ## Dating Application BETA v1.0.0
 
-## Pre-requisites
-Node version: 7.6.0
-
 ## Quick start
 
 2. Run `npm install` to install dependencies and clean the git repo.<br />
 3. Run `gulp` to run the example development server.
-4. Run `gulp deploy` to run the deploy
+4. Run `gulp deploy` to run the deploy and after installing http-server you can run the app with `http-server ./build -p 3000`
 
 ## Npm install
 Before running npm install, please install the latest versions of nodejs and npm and delete the folder node_modules

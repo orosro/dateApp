@@ -29,7 +29,7 @@ const PATHS = {
  /* ----------------- */
 
 gulp.task('development', () => {
-    sequence('clean','bower', 'images', 'json', 'scripts', 'styles', 'htmlTemplates', 'html', () => {
+    sequence('clean','bower', 'images', 'json', 'scripts', 'cssmin', 'htmlTemplates', 'html', () => {
         browserSync({
             'server': {
                 baseDir: PATHS.DEST
@@ -46,7 +46,7 @@ gulp.task('development', () => {
     gulp.watch(PATHS.SOURCE+'view/**/*.html', ['htmlTemplates']);
     gulp.watch(PATHS.SOURCE+'server/**/*.json', ['json']);
     gulp.watch(PATHS.SOURCE+'img/**/*.*', ['images']);
-    gulp.watch(PATHS.SOURCE+'scss/**/*.scss', ['styles']);
+    gulp.watch(PATHS.SOURCE+'scss/**/*.scss', ['cssmin']);
     gulp.watch(PATHS.SOURCE+'js/**/*.js', ['scripts']);
     gulp.watch(PATHS.SOURCE+'index.html', () => {
         sequence('html', browserSync.reload)
@@ -134,7 +134,7 @@ gulp.task('images', () => {
 /* HTML
  /* ----------------- */
 
-gulp.task('html', ['cssmin'], () => {
+gulp.task('html', () => {
     return gulp.src(PATHS.SOURCE+'index.html')
         .pipe(critical.stream({
             'base': PATHS.DEST,
@@ -181,29 +181,10 @@ gulp.task('cssmin', () => {
             cascade: false
         }))
         .on('error', plugins().sass.logError)
-        .pipe(gulp.dest(PATHS.DEST+'css/'));
-});
-
-
-/* ----------------- */
-/* Styles
- /* ----------------- */
-
-gulp.task('styles', () => {
-    return gulp.src(PATHS.SOURCE+'scss/**/*.scss')
-        .pipe(plugins().sourcemaps.init())
-        .pipe(pleeease({
-            sass: {
-                'outputStyle': 'compressed',
-                includePaths: ['path/to/include'],
-            },
-            "autoprefixer": true,
-            "browsers": ["last 3 versions", "Android 2.3"],
-        }))
-        .pipe(plugins().sourcemaps.write())
         .pipe(gulp.dest(PATHS.DEST+'css/'))
         .pipe(browserSync.stream());
 });
+
 
 /* ----------------- */
 /* Jsmin
@@ -238,5 +219,5 @@ gulp.task('jsmin', () => {
 
 gulp.task('default', ['development']);
 gulp.task('deploy', () => {
-    sequence('clean','bower', 'images', 'json', 'scripts', 'styles', 'htmlTemplates', 'html', 'jsmin');
+    sequence('clean','bower', 'images', 'json', 'scripts', 'cssmin', 'htmlTemplates', 'html', 'jsmin');
 });

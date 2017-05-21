@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Sophie",
+    "age": "24",
+    "sex": "F",
+    "id": 123,
+    "img": "sophie.jpg",
+    "city": "New York",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores corporis, culpa cumque doloribus est expedita explicabo illum modi nemo nesciunt perspiciatis provident quod rem repellendus sapiente suscipit tenetur veritatis?"
+  },
+  {
+    "name": "Ioana",
+    "age": "24",
+    "sex": "F",
+    "id": 555,
+    "img": "ioana.jpg",
+    "city": "Near you",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores corporis, culpa cumque doloribus est expedita explicabo illum modi nemo nesciunt perspiciatis provident quod rem repellendus sapiente suscipit tenetur veritatis?"
+  },
+  {
+    "name": "Vasile",
+    "age": "30",
+    "sex": "M",
+    "id": 666,
+    "img": "vasile.jpg",
+    "city": "Hampshire",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores corporis, culpa cumque doloribus est expedita explicabo illum modi nemo nesciunt perspiciatis provident quod rem repellendus sapiente suscipit tenetur veritatis?"
+  }
+]
